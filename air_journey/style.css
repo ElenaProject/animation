@@ -1,0 +1,132 @@
+
+/*========= Базовое оформление ===========*/
+
+html, body {
+  height: 100%;
+}
+
+.mechanical-world {
+  position: relative;
+  margin: 0;
+  background-color: #025d50;
+}
+
+ .mechanical-world::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #490943 0,#2d0529 440px,#025d50 440px);
+  filter: blur(5px);
+} 
+
+.mechanical-world > div {
+  position: relative;
+  width: 660px;
+  height: 345px;
+  margin: 0 auto;
+  padding-top: 90px;
+  overflow: hidden;
+  background: #490943 url(images/wrld2.svg) 0 110px no-repeat;
+}
+
+.birds, .aerostat,
+.wind-mill, .ufo {
+  position: absolute;
+}
+
+.birds {
+  position: absolute;
+  top: 30px;
+  left: 30%;
+  width: 80px;
+  height: 80px;
+  background: url(images/birds.svg) 0 0 no-repeat;
+}
+
+.aerostat {
+    bottom: 10px;
+    left: 15px;
+    width: 140px;
+    height: 140px;
+    background: url(images/aerostat.svg) 0 0 no-repeat;
+  }
+
+.ufo {
+    top: -100px;
+    left: -100px;
+    width: 100px;
+    height: 50px;
+    background: url(images/ufo.svg) no-repeat 0 0;
+}
+
+.wind-mill {
+  bottom: 75px;
+  left: 258px;
+  width: 140px;
+  height: 140px;
+  background: url(images/wind-wheel.svg) 0 0 no-repeat;
+}
+
+/*========= Анимация ===========*/
+
+@keyframes move-wheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes move-aerostat {
+  50% {
+    transform: translate(350px, -1000px);
+  }
+  to {
+    transform: translate(480px, 0);
+  }
+}
+
+@keyframes move-birds {
+  to {
+    transform: translateX(1500px);
+  }
+}
+
+@keyframes move-ufo {
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(200px, 375px);
+  }
+}
+
+.birds {
+  animation-name: move-birds;
+  animation-duration: 50s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.wind-mill {
+  animation-name: move-wheel;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+.aerostat {
+  animation-name: move-aerostat;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+.ufo {
+  animation-name: move-ufo;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-delay: 8s;
+}
+  
